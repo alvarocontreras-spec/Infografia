@@ -36,7 +36,7 @@ const App = () => {
   };
 
   const handlePrint = () => {
-    // Intentar disparar la impresión directamente
+    // Disparar la impresión del navegador
     window.print();
   };
 
@@ -67,7 +67,7 @@ const App = () => {
             >
               <Printer size={18} /> Imprimir / Guardar PDF
             </button>
-            <p className="text-[10px] text-stone-400 italic">Si el botón no abre nada, presiona Ctrl+P (o Cmd+P)</p>
+            <p className="text-[10px] text-stone-400 italic">En GitHub, presiona Ctrl+P si el botón es bloqueado por el navegador</p>
           </div>
         </div>
 
@@ -190,7 +190,7 @@ const App = () => {
       </div>
 
       <footer className="mt-8 text-stone-400 text-[10px] font-sans uppercase tracking-[0.2em] print:hidden text-center">
-        <p>Tip: Al imprimir, selecciona "Guardar como PDF" y "Orientación: Horizontal".</p>
+        <p>Configuración sugerida: Orientación Horizontal, Márgenes Ninguno, Gráficos de fondo Activados.</p>
       </footer>
 
       <style>{`
@@ -203,8 +203,8 @@ const App = () => {
             background: white !important; 
             margin: 0; 
             padding: 0; 
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
           }
           .print\\:hidden { display: none !important; }
           #card-to-print { 
@@ -215,12 +215,13 @@ const App = () => {
             height: 100vh !important;
             max-width: none !important;
             margin: 0 !important;
-            padding: 20mm !important;
+            padding: 15mm !important;
             border: none !important;
             box-shadow: none !important;
             display: flex !important;
             flex-direction: column !important;
             justify-content: space-between !important;
+            background-color: ${bgColor} !important;
           }
         }
       `}</style>
